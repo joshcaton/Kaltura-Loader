@@ -8,7 +8,6 @@ def K_connect():
     config = KalturaConfiguration(4530233)
     config.serviceUrl = "https://www.kaltura.com/"
     client = KalturaClient(config)
-    print("KalturaClient object instantiated");
 
     secret = "fe3397b78566adecf8de92e4ae747d3d"
     user_id = "joshcaton@live.com"
@@ -33,9 +32,8 @@ def uploadVideoFiles(client, file_list):
     desc_list = ['A sample video file of ' + s + ' from Wikimedia Commons' for s in name_list]
     ent_ids = {}
 
-    print('uploading 10 video files')
     for i in range(len(file_list)):
-        print(file_list[i])
+        print('Uploading ' + str(file_list[i]))
 
         #get new upload token
         upload_token = KalturaUploadToken()
@@ -74,8 +72,6 @@ def createCategories(client):
     category2.name = "Second Category"
     resp_category_2 = client.category.add(category2)
     cat_ids.append(resp_category_2.id)
-
-    print(resp_category_2.id)
 
     return cat_ids
 
