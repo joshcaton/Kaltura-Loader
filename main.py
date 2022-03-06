@@ -19,7 +19,7 @@ def K_connect():
     ks = client.session.start(secret, user_id, k_type, partner_id, expiry, privileges)
     client.setKs(ks)
 
-    print("KalturaClient connection started");
+    print("KalturaClient connection started")
 
     return client
 
@@ -37,7 +37,7 @@ def uploadVideoFiles(client, file_list):
 
         #get new upload token
         upload_token = KalturaUploadToken()
-        token = client.uploadToken.add(upload_token);
+        token = client.uploadToken.add(upload_token)
 
         #upload video file
         upload_token_id = token.id
@@ -76,7 +76,7 @@ def createCategories(client):
     return cat_ids
 
 def associateCategories(client, cat_ids, ent_ids):
-    current_entry_index = 0;
+    current_entry_index = 0
     for x in range(len(cat_ids)):
         for i in range(5):
             print('Adding vid_id ' + str(ent_ids[current_entry_index]) + ' to category ' + str(cat_ids[x]))
